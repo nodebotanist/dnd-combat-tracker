@@ -6,7 +6,7 @@ const Index = ({data}) => {
     console.log(monsters)
     return(
         <>
-            <h1>Bestiary</h1>
+            <h1 className="text-3xl font-bold underline">Bestiary</h1>
             <ul>
                 {monsters.map((monster) => <li><Link to={`/monsters/${monster.id}`}>{monster.name}</Link></li>)}
             </ul>
