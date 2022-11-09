@@ -1,10 +1,10 @@
 const graphqlRequest = require("graphql-request")
 const { request, gql } = graphqlRequest
 
-exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
     const query = gql`
     query {
-        monsters {
+        monsters (limit: 500) {
             name
             desc
             challenge_rating
@@ -43,20 +43,19 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
         }
     }`
 
-    request('https://www.dnd5eapi.co/graphql', query).then((data) => {
-        const monsters = data.monsters
+    let monsters = await request('https://www.dnd5eapi.co/graphql', query)
+    monsters = monsters.monsters
 
-        monsters.forEach((monster) => {
-            actions.createNode({
-                // Data for the node.
-                ...monster,
-                // Required fields.
-                id: createNodeId(monster.name),
-                internal: {
-                    type: `monster`,
-                    contentDigest: createContentDigest(monster)
-                }
-            })
+    monsters.forEach((monster) => {
+        actions.createNode({
+            // Data for the node.
+            ...monster,
+            // Required fields.
+            id: createNodeId(monster.name),
+            internal: {
+                type: `monster`,
+                contentDigest: createContentDigest(monster)
+            }
         })
     })
 }
