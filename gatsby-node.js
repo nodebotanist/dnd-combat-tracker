@@ -60,6 +60,29 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     })
 }
 
-exports.createPages = () => {
+exports.createPages = async ({actions, graphql}) => {
+
+    const data = await graphql(`
+        query {
+            allMonster {
+                nodes {
+                    name
+                    challenge_rating
+                    id
+                }
+            }
+        }
+    `)
+    const monsters = data.data.allMonster.nodes
+    
+    monsters.forEach((monster) => {
+        actions.createPage({
+            path: `/monsters/${monster.id}`,
+            component: require.resolve("./src/templates/monsterPage.js"),
+            context: monster
+        })
+    })
+
 
 }
+
