@@ -1,0 +1,29 @@
+{
+  "name": "dnd-combat-tracker",
+  "version": "1.0.0",
+  "description": "D&D combat enemy tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "npx gatsby develop",
+    "build": "npx gatsby build",
+    "serve": "npx gatsby serve",
+    "clean": "npx gatsby clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodebotanist/dnd-combat-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodebotanist/dnd-combat-tracker/issues"
+  },
+  "homepage": "https://github.com/nodebotanist/dnd-combat-tracker#readme",
+  "dependencies": {
+    "gatsby": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
