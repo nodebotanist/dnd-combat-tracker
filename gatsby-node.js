@@ -61,7 +61,6 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 }
 
 exports.createPages = async ({actions, graphql}) => {
-
     const data = await graphql(`
         query {
             allMonster {
@@ -82,7 +81,5 @@ exports.createPages = async ({actions, graphql}) => {
             context: monster
         })
     })
-
-
 }
 
