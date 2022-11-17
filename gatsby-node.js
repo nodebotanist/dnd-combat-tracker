@@ -9,6 +9,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
             desc
             challenge_rating
             hit_points
+            image
             actions {
             name
             attack_bonus
