@@ -4,7 +4,7 @@ import { request, gql } from "graphql-request"
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNode, createNodeId, createContentDigest }) => {
     const query = gql`
-    query {
+    query addMonsters {
         monsters (limit: 500) {
             name
             desc
