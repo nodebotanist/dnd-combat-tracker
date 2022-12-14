@@ -9,7 +9,8 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: {
-    typesOutputPath: 'gatsby-types.d.ts'
+    typesOutputPath: `gatsby-types.d.ts`,
+    documentSearchPaths: [],
   },
   plugins: [],
 }
